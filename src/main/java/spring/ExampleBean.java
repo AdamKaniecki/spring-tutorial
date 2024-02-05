@@ -1,6 +1,7 @@
 package spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ public class ExampleBean {
 
     private SomeCommonInterface someCommonInterface;
 
-    public ExampleBean(AnotherInjectedBean anotherInjectedBean, SomeCommonInterface someCommonInterface) {
+    public ExampleBean(AnotherInjectedBean anotherInjectedBean,@Qualifier("someBean1") SomeCommonInterface someCommonInterface) {
         this.anotherInjectedBean = anotherInjectedBean;
         this.someCommonInterface = someCommonInterface;
         System.out.println("calling Example Bean constructor");
