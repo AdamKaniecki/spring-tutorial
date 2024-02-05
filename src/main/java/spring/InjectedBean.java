@@ -1,10 +1,11 @@
 package spring;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class InjectedBean {
+
     public InjectedBean() {
-        System.out.println("injected Bean");
+        System.out.println("calling Injected Bean");
     }
 }
