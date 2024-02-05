@@ -13,9 +13,9 @@ public class ExampleBean {
 
     private SomeCommonInterface someCommonInterface;
 
-    public ExampleBean(AnotherInjectedBean anotherInjectedBean,@Qualifier("someBean1") SomeCommonInterface someCommonInterface) {
+    public ExampleBean(AnotherInjectedBean anotherInjectedBean, SomeCommonInterface someBean2) {
         this.anotherInjectedBean = anotherInjectedBean;
-        this.someCommonInterface = someCommonInterface;
+        this.someCommonInterface = someBean2;
         System.out.println("calling Example Bean constructor");
     }
 public void someMethod(){
