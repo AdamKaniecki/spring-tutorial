@@ -1,10 +1,16 @@
 package spring;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan(basePackageClasses = Main.class)
 public class ExampleConfigurationClass {
+
+    @Bean(initMethod = "initMethod",destroyMethod = "destroyMethod")
+public AnotherInjectedBean anotherInjectedBean(){
+    return new AnotherInjectedBean();
+}
 
 }
