@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackageClasses = Main.class)
 public class ExampleConfigurationClass {
 
-    @Bean(initMethod = "initMethod",destroyMethod = "destroyMethod")
+    @Bean
 public AnotherInjectedBean anotherInjectedBean(){
     return new AnotherInjectedBean();
 }

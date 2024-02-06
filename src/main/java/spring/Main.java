@@ -2,31 +2,21 @@ package spring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-//        trzeba zmienić typ referencji na Abstract bo na tej nie ma metody closed
-//        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ExampleConfigurationClass.class);
-        System.out.println("start context");
-        AbstractApplicationContext applicationContext = new AnnotationConfigApplicationContext(ExampleConfigurationClass.class);
-        System.out.println("after context");
+//
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ExampleConfigurationClass.class);
+       ExampleSingletonBean exampleSingletonBean1 = applicationContext.getBean(ExampleSingletonBean.class);
+       ExampleSingletonBean exampleSingletonBean2 = applicationContext.getBean(ExampleSingletonBean.class);
 
-        System.out.println("start bean");
-        AnotherInjectedBean bean = applicationContext.getBean(AnotherInjectedBean.class);
-        System.out.println("after bean");
+        ExamplePrototypeBean examplePrototypeBean1 = applicationContext.getBean(ExamplePrototypeBean.class);
+        ExamplePrototypeBean examplePrototypeBean2 = applicationContext.getBean(ExamplePrototypeBean.class);
 
-        System.out.println("start some method");
-        bean.someMethod();
-        System.out.println("after some method");
-
-        System.out.println("start destroy");
-        applicationContext.close();
-        System.out.println("after destroy");
-
-//        Arrays.asList(applicationContext.getBeanDefinitionNames()).forEach(System.out::println);
+        System.out.println("singleton1 == singleton2 " + (exampleSingletonBean1 == exampleSingletonBean2));
+        System.out.println("prototype1 == prototype2 " + (examplePrototypeBean1 == examplePrototypeBean2));
 
 
     }
